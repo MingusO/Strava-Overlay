@@ -1,0 +1,10 @@
+
+{
+  "name": "Strava Overlay Tool",
+  "short_name": "Overlay",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0c0c0c",
+  "theme_color": "#1a1f2b",
+  "icons": []
+}

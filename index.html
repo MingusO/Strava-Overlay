@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>Strava Overlay Tool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="header">
+    <p>15.37</p>
+    <p>This project is in alpha. Please submit feedback <a href="#">here</a></p>
+  </div>
+
+  <nav>
+    <button onclick="switchTab('activity')">Activity</button>
+    <button onclick="switchTab('photo')">Photo</button>
+    <button onclick="switchTab('track')">Track</button>
+    <button onclick="switchTab('stats')">Stats</button>
+    <button onclick="switchTab('finish')">Finish</button>
+  </nav>
+
+  <div id="activity" class="tab">
+    <h2>Choose an Activity</h2>
+    <div id="activityList"></div>
+  </div>
+
+  <div id="photo" class="tab hidden">
+    <h2>Upload a Photo</h2>
+    <input type="file" id="photoUpload" accept="image/*">
+  </div>
+
+  <div id="track" class="tab hidden">
+    <h2>Track Options</h2>
+    <label><input type="checkbox" id="showTrack" checked> Show Track</label><br>
+    <label>Line Width: <input type="range" id="trackWidth" min="1" max="10" value="3"></label><br>
+    <label>Color: <input type="color" id="trackColor" value="#ffffff"></label><br>
+    <label>Opacity: <input type="range" id="trackOpacity" min="0" max="1" step="0.05" value="0.6"></label>
+  </div>
+
+  <div id="stats" class="tab hidden">
+    <h2>Stats Options</h2>
+    <label><input type="checkbox" id="showStats" checked> Show Stats</label><br>
+    <label><input type="checkbox" id="metricUnits"> US - Metric</label><br>
+    <label>Color: <input type="color" id="textColor" value="#ffffff"></label><br>
+    <label>Opacity: <input type="range" id="textOpacity" min="0" max="1" step="0.05" value="1"></label><br><br>
+    <label><input type="checkbox" class="stat-toggle" value="distance" checked> Distance</label>
+    <label><input type="checkbox" class="stat-toggle" value="pace" checked> Pace</label>
+    <label><input type="checkbox" class="stat-toggle" value="time" checked> Moving Time</label>
+    <label><input type="checkbox" class="stat-toggle" value="elevation" checked> Elevation Gain</label>
+    <label><input type="checkbox" class="stat-toggle" value="maxElevation" checked> Max Elevation</label>
+    <label><input type="checkbox" class="stat-toggle" value="calories"> Calories*</label>
+  </div>
+
+  <div id="finish" class="tab hidden">
+    <h2>Finish</h2>
+    <canvas id="canvas"></canvas><br><br>
+    <button onclick="drawOverlay()">Preview</button><br><br>
+    <button onclick="downloadOverlay()">Download Image</button><br><br>
+    <button onclick="openImageInNewTab()">Open Image In New Tab</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
